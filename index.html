@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Api.rivierabuild by jayztemplier</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Api.rivierabuild</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/jayztemplier/api.rivierabuild">View the Project on GitHub <small>jayztemplier/api.rivierabuild</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jayztemplier/api.rivierabuild/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jayztemplier/api.rivierabuild/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jayztemplier/api.rivierabuild">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="api-key" class="anchor" href="#api-key" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Key</h3>
+
+<p>You can get an API key by signing in, then go to Settings. You'll see the API key, if not, click on "Generate new API key" to create a new one.</p>
+
+<h3>
+<a id="upload-a-build" class="anchor" href="#upload-a-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upload a build</h3>
+
+<pre><code>curl "http://beta.rivierabuild.com/upload"
+-F file=@"${TMP_FILE_PATH}"
+-F availability="${AVAILABILITY}"
+-F passcode="${PASSWORD}"
+-F app_id="${PASSWORD}"
+-F api_key="${API_KEY}"
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td>string</td>
+<td>path to the file to upload</td>
+</tr>
+<tr>
+<td>availability</td>
+<td>string</td>
+<td>for how long the build will be available?</td>
+</tr>
+<tr>
+<td>passcode</td>
+<td>string</td>
+<td>Optional: password, if set, the password is required to download a build</td>
+</tr>
+<tr>
+<td>app_id</td>
+<td>integer</td>
+<td>Optional: ID of the application you want to put the build in</td>
+</tr>
+<tr>
+<td>api_key</td>
+<td>string</td>
+<td>Optional: User API Key to link the build to your account</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="availability-options" class="anchor" href="#availability-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Availability Options</h3>
+
+<p>Once the availability time expires, the build is delete and not accessible anymore.</p>
+
+<table>
+<thead>
+<tr>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10_minutes</td>
+</tr>
+<tr>
+<td>1_hour</td>
+</tr>
+<tr>
+<td>3_hours</td>
+</tr>
+<tr>
+<td>6_hours</td>
+</tr>
+<tr>
+<td>12_hours</td>
+</tr>
+<tr>
+<td>24_hours</td>
+</tr>
+<tr>
+<td>1_week</td>
+</tr>
+<tr>
+<td>2_weeks</td>
+</tr>
+<tr>
+<td>1_month</td>
+</tr>
+<tr>
+<td>2_months</td>
+</tr>
+</tbody>
+</table>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jayztemplier">jayztemplier</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
