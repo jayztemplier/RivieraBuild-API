@@ -41,16 +41,18 @@ Params
 
 Once the availability time expires, the build is delete and not accessible anymore.
 
-* 10_minutes  
-* 1_hour  
-* 3_hours
-* 6_hours  
-* 12_hours  
-* 24_hours  
-* 1_week  
-* 2_weeks  
-* 1_month  
-* 2_months 
+| Values  |
+|---|
+| 10_minutes  |
+| 1_hour  |
+| 3_hours  |
+| 6_hours  |
+| 12_hours  |
+| 24_hours  |
+| 1_week  |
+| 2_weeks  |
+| 1_month  |
+| 2_months  |
 
 
 ## Get latest available build information
