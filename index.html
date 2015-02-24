@@ -36,13 +36,24 @@
 <h3>
 <a id="upload-a-build" class="anchor" href="#upload-a-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upload a build</h3>
 
-<pre><code>curl "http://beta.rivierabuild.com/upload"
+<pre><code>curl "http://beta.rivierabuild.com/api/upload"
 -F file=@"${TMP_FILE_PATH}"
 -F availability="${AVAILABILITY}"
 -F passcode="${PASSWORD}"
 -F app_id="${PASSWORD}"
 -F api_key="${API_KEY}"
+-F commit_sha="${COMMIT_SHA}"
+-F note="${NOTE}"
+-F version="${VERSION}"
+-F build_number="${BUILD_NUMBER}"
 </code></pre>
+
+<p>Result</p>
+
+<pre><code>{"success":true,"file_url":"http://beta.rivierabuild.com/get/dovjek"}%
+</code></pre>
+
+<p>Params</p>
 
 <table>
 <thead>
@@ -77,6 +88,26 @@
 <td>api_key</td>
 <td>string</td>
 <td>Optional: User API Key to link the build to your account</td>
+</tr>
+<tr>
+<td>note</td>
+<td>string</td>
+<td>Optional: You can attach notes to your build!</td>
+</tr>
+<tr>
+<td>commit_sha</td>
+<td>string</td>
+<td>Optional: last commit (sha) of the build. Can be useful to know what changes are included in the build</td>
+</tr>
+<tr>
+<td>version</td>
+<td>string</td>
+<td>Optional: Version of the application (ex: 1.01)</td>
+</tr>
+<tr>
+<td>build_number</td>
+<td>string</td>
+<td>Optional: Build number (ex: 1.01b123)</td>
 </tr>
 </tbody>
 </table>
@@ -125,6 +156,27 @@
 </tr>
 </tbody>
 </table>
+
+<h3>
+<a id="get-latest-available-build-information" class="anchor" href="#get-latest-available-build-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get latest available build information</h3>
+
+<pre><code>curl "http://beta.rivierabuild.com/api/applications/:application_id/builds/latest"
+</code></pre>
+
+<p>Result</p>
+
+<pre><code>{
+  id: 59,
+  build_name: "AnimalCrush.ipa",
+  created_at: "2015-02-22T18:33:42.861Z",
+  version: "1.0",
+  build_number: "1.0",
+  name: "Animal Crush",
+  note: "Some note you wrote earlier",
+  available_until: "2015-04-19T18:33:42.723Z",
+  commit_sha: "ewfwefonwerfgoinrgerogrgojergpojergoeprgjerpogjer"
+}
+</code></pre>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/jayztemplier">jayztemplier</a></p>
