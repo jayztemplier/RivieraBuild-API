@@ -24,17 +24,15 @@ Result
 
 Params
 
-| Param  | Value  | Description  |
-|---|---|---|
-| file  | string  | path to the file to upload  |
-| availability  | string  | for how long the build will be available?  |
-| passcode  | string  |  Optional: password, if set, the password is required to download a build |
-| app_id  | integer  | Optional, recommended: ID of the application you want to put the build in. If not set, the build won't be assign to one of your applications.|
-| api_key  | string  |  Optional, recommended: User API Key to link the build to your account. If not set, the build will be send as a guest user.|
-| note  | string  |  Optional: You can attach notes to your build! |
-| commit_sha  | string  |  Optional: last commit (sha) of the build. Can be useful to know what changes are included in the build |
-| version  | string  |  Optional: Version of the application (ex: 1.01)|
-| build_number  | string  |  Optional: Build number (ex: 1.01b123) |
+* file (string): path to the file to upload
+* availability (string): for how long the build will be available?  
+* passcode (string): Optional: password, if set, the password is required to download a build.
+* app_id (integer): Optional, recommended: ID of the application you want to put the build in. If not set, the build won't be assign to one of your applications.
+* api_key (string):  Optional, recommended: User API Key to link the build to your account. If not set, the build will be send as a guest user.
+* note (string): Optional: You can attach notes to your build!
+* commit_sha (string): Optional: last commit (sha) of the build. Can be useful to know what changes are included in the build
+* version (string): Optional: Version of the application (ex: 1.01)
+* build_number (string):  Optional: Build number (ex: 1.01b123) 
 
 
 
