@@ -1,4 +1,5 @@
 markdown: redcarpet
 
 redcarpet:
-  extensions: [:tables]
+  extensions:
+    tables: true
