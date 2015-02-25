@@ -179,6 +179,22 @@
 <h2><a id="get-latest-available-build-information"></a>Get latest available build information</h2>
 <div class="highlight"><pre><code class="language-text" data-lang="text">curl &quot;http://beta.rivierabuild.com/api/applications/:application_id/builds/latest&quot;
 </code></pre></div>
+<p>Params</p>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_key</td>
+<td>string</td>
+<td>Optional, recommended: User API Key to link the build to your account. If not set, the build will be send as a guest user.</td>
+</tr>
+</tbody></table>
+
 <p>Result</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">{
   id: 59,

@@ -61,6 +61,13 @@ Once the availability time expires, the build is delete and not accessible anymo
 
     curl "http://beta.rivierabuild.com/api/applications/:application_id/builds/latest"
 
+Params
+
+| Param  | Value  | Description  |
+|---|---|---|
+| api_key  | string  |  Optional, recommended: User API Key to link the build to your account. If not set, the build will be send as a guest user.|
+
+
 Result
 
     {
