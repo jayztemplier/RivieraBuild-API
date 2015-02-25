@@ -1,5 +1,1 @@
 markdown: redcarpet
-
-redcarpet:
-  extensions:
-    tables: true
