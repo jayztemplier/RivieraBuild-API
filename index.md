@@ -2,11 +2,11 @@
 layout: index
 ---
 
-## API Key
+## <a id="api-key"></a>API Key
 You can get an API key by signing in, then go to Settings. You'll see the API key, if not, click on "Generate new API key" to create a new one.
 
 
-## Upload a build
+## <a id="upload-a-build"></a>Upload a build
     curl "http://beta.rivierabuild.com/api/upload"
     -F file=@"${TMP_FILE_PATH}"
     -F availability="${AVAILABILITY}"
@@ -57,7 +57,8 @@ Once the availability time expires, the build is delete and not accessible anymo
 | 2_months  |
 
 
-## Get latest available build information
+## <a id="get-latest-available-build-information"></a>Get latest available build information
+
     curl "http://beta.rivierabuild.com/api/applications/:application_id/builds/latest"
 
 Result

@@ -1,41 +1,93 @@
+
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Riviera Build - API by jayztemplier</title>
+<html lang="en" ng-app='rivieraApp'>
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h2 class="header">Riviera Build</h2>
-        <p class="header">API Documentation</p>
+  <title>Riviera Build</title>
 
-        <ul>
-          <li><a class="" href="#api-key">API Key</a></li>
-          <li><a class="" href="#upload-a-build">Upload a build</a></li>
-          <li><a class="" href="#get-latest-available-build-information">Latest build</a></li>
-        </ul>
+  <link href="stylesheets/bootstrap.min.css" rel="stylesheet" >
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script src="javascripts/scale.fix.js"></script>
 
-      </header>
-      <section>
 
-        {{content}}
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
 
-      </section>
-      <footer>
-        <p><small>© 2015 Riviera Build.</small></p>
-      </footer>
+  <div id="header-brand">
+    <img src="/images/logo-rivierabuild.png" class="img-rounded">
+    <span id="brand-name"> Riviera Build</span>
+  </div>
+
+
+<div id="top-bar">
+  <a href="http://beta.rivierabuild.com">Try it, you will love it</a>
+</div>
+
+  <div id="container">
+    <div id="header">
+      <div id="settings">
+
+        <div class="row">
+          <div class="col-md-2">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Settings</h3>
+              </div>
+              <div class="panel-body menu">
+                <ul>
+                  <li class="item" ng-click="tab = 'account'"><a data-scroll href="#api-key" >API Key</a></li>
+                  <li class="item" ng-click="tab = 'storage'"><a data-scroll href="#upload-a-build">Upload a build</a></li>
+                  <li class="item" ng-click="tab = 'storage'"><a data-scroll href="#get-latest-available-build-information">Get last build info</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <div ng-show="tab == 'account'" class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">API</h3>
+              </div>
+              <div class="panel-body">
+              {{content}}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 
-  </body>
-</html>
+    <div id="footer" class="center-block">
+      <span class="no-theme-only">
+        <span class="fa fa-3x fa-apple"></span>
+        <span class="icon"><img src="/images/logo-rivierabuild.png" class="img-rounded"></span>
+        <span class="fa fa-3x fa-android"></span>
+
+        <p id="self-host">
+          Want to self-host Riviera? <a href="mailto:templier.jeremy@gmail.com" target="_top">Contact us.</a>
+        </p>
+      </span>
+      <p>
+        © 2015 Riviera Build. Created and owned by <a href="#" target="_top">
+          Riviera Tools</a> -
+          <a href="http://blog.rivierabuild.com" target="_top">Blog</a> -
+          <a href="http://api.rivierabuild.com" target="_top">Documentation</a> -
+          <a href="http://blog.rivierabuild.com/post/112010605366/faq" target="_top">FAQ</a>
+        </p>
+      </div>
+
+    </body>
+    </html>

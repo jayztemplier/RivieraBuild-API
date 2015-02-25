@@ -1,0 +1,224 @@
+
+<!doctype html>
+<html lang="en" ng-app='rivieraApp'>
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Riviera Build</title>
+
+  <link href="stylesheets/bootstrap.min.css" rel="stylesheet" >
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script src="javascripts/scale.fix.js"></script>
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+  <div id="header-brand">
+    <img src="/images/logo-rivierabuild.png" class="img-rounded">
+    <span id="brand-name"> Riviera Build</span>
+  </div>
+
+
+<div id="top-bar">
+  <a href="http://beta.rivierabuild.com">Try it, you will love it</a>
+</div>
+
+  <div id="container">
+    <div id="header">
+      <div id="settings">
+
+        <div class="row">
+          <div class="col-md-2">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Settings</h3>
+              </div>
+              <div class="panel-body menu">
+                <ul>
+                  <li class="item" ng-click="tab = 'account'"><a data-scroll href="#api-key" >API Key</a></li>
+                  <li class="item" ng-click="tab = 'storage'"><a data-scroll href="#upload-a-build">Upload a build</a></li>
+                  <li class="item" ng-click="tab = 'storage'"><a data-scroll href="#get-latest-available-build-information">Get last build info</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-10">
+            <div ng-show="tab == 'account'" class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">API</h3>
+              </div>
+              <div class="panel-body">
+              <h2><a id="api-key"></a>API Key</h2>
+
+<p>You can get an API key by signing in, then go to Settings. You&#39;ll see the API key, if not, click on &quot;Generate new API key&quot; to create a new one.</p>
+
+<h2><a id="upload-a-build"></a>Upload a build</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">curl &quot;http://beta.rivierabuild.com/api/upload&quot;
+-F file=@&quot;${TMP_FILE_PATH}&quot;
+-F availability=&quot;${AVAILABILITY}&quot;
+-F passcode=&quot;${PASSWORD}&quot;
+-F app_id=&quot;${PASSWORD}&quot;
+-F api_key=&quot;${API_KEY}&quot;
+-F commit_sha=&quot;${COMMIT_SHA}&quot;
+-F note=&quot;${NOTE}&quot;
+-F version=&quot;${VERSION}&quot;
+-F build_number=&quot;${BUILD_NUMBER}&quot;
+</code></pre></div>
+<p>Result</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{&quot;success&quot;:true,&quot;file_url&quot;:&quot;http://beta.rivierabuild.com/get/dovjek&quot;}%
+</code></pre></div>
+<p>Params</p>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>string</td>
+<td>path to the file to upload</td>
+</tr>
+<tr>
+<td>availability</td>
+<td>string</td>
+<td>for how long the build will be available?</td>
+</tr>
+<tr>
+<td>passcode</td>
+<td>string</td>
+<td>Optional: password, if set, the password is required to download a build</td>
+</tr>
+<tr>
+<td>app_id</td>
+<td>integer</td>
+<td>Optional, recommended: ID of the application you want to put the build in. If not set, the build won&#39;t be assign to one of your applications.</td>
+</tr>
+<tr>
+<td>api_key</td>
+<td>string</td>
+<td>Optional, recommended: User API Key to link the build to your account. If not set, the build will be send as a guest user.</td>
+</tr>
+<tr>
+<td>note</td>
+<td>string</td>
+<td>Optional: You can attach notes to your build! Note supports Markdown! More info: https://help.github.com/articles/markdown-basics/</td>
+</tr>
+<tr>
+<td>commit_sha</td>
+<td>string</td>
+<td>Optional: last commit (sha) of the build. Can be useful to know what changes are included in the build</td>
+</tr>
+<tr>
+<td>version</td>
+<td>string</td>
+<td>Optional: Version of the application (ex: 1.01)</td>
+</tr>
+<tr>
+<td>build_number</td>
+<td>string</td>
+<td>Optional: Build number (ex: 1.01b123)</td>
+</tr>
+</tbody></table>
+
+<h3>Availability Options</h3>
+
+<p>Once the availability time expires, the build is delete and not accessible anymore.</p>
+
+<table><thead>
+<tr>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>10_minutes</td>
+</tr>
+<tr>
+<td>1_hour</td>
+</tr>
+<tr>
+<td>3_hours</td>
+</tr>
+<tr>
+<td>6_hours</td>
+</tr>
+<tr>
+<td>12_hours</td>
+</tr>
+<tr>
+<td>24_hours</td>
+</tr>
+<tr>
+<td>1_week</td>
+</tr>
+<tr>
+<td>2_weeks</td>
+</tr>
+<tr>
+<td>1_month</td>
+</tr>
+<tr>
+<td>2_months</td>
+</tr>
+</tbody></table>
+
+<h2><a id="get-latest-available-build-information"></a>Get latest available build information</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">curl &quot;http://beta.rivierabuild.com/api/applications/:application_id/builds/latest&quot;
+</code></pre></div>
+<p>Result</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{
+  id: 59,
+  build_name: &quot;AnimalCrush.ipa&quot;,
+  created_at: &quot;2015-02-22T18:33:42.861Z&quot;,
+  version: &quot;1.0&quot;,
+  build_number: &quot;1.0&quot;,
+  name: &quot;Animal Crush&quot;,
+  note: &quot;Some note you wrote earlier&quot;,
+  available_until: &quot;2015-04-19T18:33:42.723Z&quot;,
+  commit_sha: &quot;ewfwefonwerfgoinrgerogrgojergpojergoeprgjerpogjer&quot;
+}
+</code></pre></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div id="footer" class="center-block">
+      <span class="no-theme-only">
+        <span class="fa fa-3x fa-apple"></span>
+        <span class="icon"><img src="/images/logo-rivierabuild.png" class="img-rounded"></span>
+        <span class="fa fa-3x fa-android"></span>
+
+        <p id="self-host">
+          Want to self-host Riviera? <a href="mailto:templier.jeremy@gmail.com" target="_top">Contact us.</a>
+        </p>
+      </span>
+      <p>
+        © 2015 Riviera Build. Created and owned by <a href="#" target="_top">
+          Riviera Tools</a> -
+          <a href="http://blog.rivierabuild.com" target="_top">Blog</a> -
+          <a href="http://api.rivierabuild.com" target="_top">Documentation</a> -
+          <a href="http://blog.rivierabuild.com/post/112010605366/faq" target="_top">FAQ</a>
+        </p>
+      </div>
+
+    </body>
+    </html>

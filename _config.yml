@@ -1,3 +1,4 @@
+baseurl: /RivieraBuild-API
 markdown: redcarpet
 
 redcarpet:
