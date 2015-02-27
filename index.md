@@ -20,7 +20,7 @@ You can get an API key by signing in, then go to Settings. You'll see the API ke
 
 Result
 
-    {"success":true,"file_url":"http://beta.rivierabuild.com/get/dovjek"}%
+    {"success":true,"file_url":"http://beta.rivierabuild.com/get/dovjek"}
 
 Params
 
