@@ -7,7 +7,7 @@ You can get an API key by signing in, then go to Settings. You'll see the API ke
 
 
 ## <a id="upload-a-build"></a>Upload a build
-    curl -XPOST "http://beta.rivierabuild.com/api/upload"
+    curl -XPOST "https://apps.rivierabuild.com/api/upload"
     -F file=@"${TMP_FILE_PATH}"
     -F availability="${AVAILABILITY}"
     -F passcode="${PASSWORD}"
@@ -20,7 +20,7 @@ You can get an API key by signing in, then go to Settings. You'll see the API ke
 
 Result
 
-    {"success":true,"file_url":"http://beta.rivierabuild.com/get/dovjek"}
+    {"success":true,"file_url":"https://apps.rivierabuild.com/get/dovjek"}
 
 Params
 
@@ -59,7 +59,7 @@ Once the availability time expires, the build is delete and not accessible anymo
 
 ## <a id="get-latest-available-build-information"></a>Get latest available build information
 
-    curl -XGET "http://beta.rivierabuild.com/api/applications/:application_id/builds/latest"
+    curl -XGET "https://apps.rivierabuild.com/api/applications/:application_id/builds/latest"
 
 Params
 
